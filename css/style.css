@@ -1,0 +1,13 @@
+
+/*==================================
+  ============HEADER================
+  ==================================*/
+.header{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7),rgba(23, 90, 90, 0.01)), url(../img/nigeriadecides.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+
+}
+
+
