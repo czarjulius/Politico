@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin Dashboard</title>
+    <link rel="shortcut icon" href="./img/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/layout.css">
+    <link rel="stylesheet" type="text/css" href="./css/admin.css">
+
+</head>
+<body>
+         
+        <section>
+            <header>
+             <nav>
+                <!-- <img src="./img/logo.jpg" alt="Politico logo" class="logo"> -->
+                <ul>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="index.html">Home</a></li>
+
+                    <li><i><a href="index.html"><img src="./img/logo/nigeria-coat-of-arm.png"></a></i></li>
+                 </ul>
+             </nav>
+            </header>
+        </section> 
+        
+        <section>
+            <div class="container">
+                <div class="sidebar"> 
+                    <div class="user-profile">
+                        <img src="./img/Atiku-Abubakar.jpg" alt="">
+                        <p>Atiku Abubakar</p>
+                        <i>Online</i>
+                    </div>
+                    <h2>Activities</h2>
+                    <div class="user-action">
+                        <ul>
+                            <li id="createParty"><a href="#">Create Parties</a></li>
+                            <li id="manageParty"><a href="#">Manage Parties</a></li>
+                            <li id="createOffice"><a href="#">Create Offices</a></li>                            
+                        </ul>
+
+                    </div>
+
+                </div>
+                <div class="dashboard"> 
+                    <div class="create-party-cover">
+                            <div class="admin-form">
+                                <h3>Create Party</h3>
+                                <form method="POST" action="Create">
+                                    <div class="form-input"> 
+                                        <input placeholder="Party Name" type="text" class="form-control" required="required"/>                        
+                                    </div>
+                                    <div class="form-input"> 
+                                        <input placeholder="Head Quarter" type="text" class="form-control" required="required"/>                        
+                                    </div>
+                                    <div class="form-input"> 
+                                        <input  type="file" required="required"/>                        
+                                    </div>        
+                                    <div class="form-input">
+                                        <input value="Create" type="submit" class="btn btn-block"/>                        
+                                    </div>
+                                </form>          
+                            </div>
+                    </div>
+                    <div class="create-office-cover">
+                        <div class="admin-form">
+                                <h3>Create Office</h3>
+                            <form method="POST" action="Create">
+                                <div class="form-input"> 
+                                    <input placeholder="Office Name" type="text" class="form-control" required="required"/>                        
+                                </div>
+                                <div class="form-input"> 
+                                    <select name="Office" type="text" class="form-control" id="sub">
+                                    <option value = "">Office Type</option>
+                                    <option value = "">Federal</option><br />
+                                    <option value = "">Legislative</option><br />
+                                    <option value = "">State</option><br />
+                                    <option value = "">LGA</option><br />
+                                    </select>
+                                </div>        
+                                <div class="form-input">
+                                    <input value="Create" type="submit" class="btn btn-block"/>                        
+                                </div>
+                            </form>          
+                        </div>
+                    </div>  
+                    <div class="edit-party-cover">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Party</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PDP</td>
+                                    <td>
+                                        <a href="#create">Edit</a>
+                                        <a href="#Delete">Delete</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>APC</td>
+                                    <td>
+                                        <a href="#create">Edit</a>
+                                        <a href="#Delete">Delete</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>LP</td>
+                                    <td>
+                                        <a href="#create">Edit</a>
+                                        <a href="#Delete">Delete</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>YPP</td>
+                                    <td>
+                                        <a href="#create">Edit</a>
+                                        <a href="#Delete">Delete</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>           
+                    </div>                  
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>
+        
+    <footer>
+
+    </footer> 	
+    <script src="./js/admin.js"></script>  
+</body>
+</html>
