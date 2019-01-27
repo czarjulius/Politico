@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User Dashboard</title>
+    <link rel="shortcut icon" href="./img/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="./css/layout.css">
+    <link rel="stylesheet" type="text/css" href="./css/user.css">
+
+
+</head>
+<body>
+         
+        <section>
+            <header>
+             <nav>
+                <!-- <img src="./img/logo.jpg" alt="Politico logo" class="logo"> -->
+                <ul>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="login.html">Login</a></li>      
+                    <li><a href="index.html">Home</a></li>
+                    <li><i><a href="index.html"><img src="./img/logo/nigeria-coat-of-arm.png"></a></i></li>
+                 </ul>
+             </nav>
+            </header>
+        </section> 
+        
+        <section>
+            <div class="container">
+                <div class="sidebar"> 
+                    <div class="user-profile">
+                        <img src="./img/vp_ypp.jpg" alt="">
+                        <p>Umma Getso</p>
+                        <i>Online</i>
+                    </div>
+                    <h2>Activities</h2>
+                    <div class="user-action">
+                        <ul>
+                            <li id="castVote"><a href="#">Cast Vote</a></li>                           
+                            <li id="listParty"><a href="#">Political Parties</a></li>
+                            <li id="expressInterest"><a href="#">Express Interest</a></li>     
+                            <li id="voteReview"><a href="#">Vote Review</a></li>                             
+                        </ul>
+                    </div>
+                </div>
+                <div class="dashboard"> 
+                    <div class="select-vote-box">
+                        <h2>Search Political Party and Office.</h2>
+                        <form method="post" action="search">               
+                            <div class="form-input"> 
+                                    <select name="" type="text" class="form-control" >
+                                    <option value = "">Select Office</option>
+                                    <option value = "">President</option><br />
+                                    <option value = "">Governor</option><br />
+                                    <option value = "">House Of Rep</option><br />
+                                    <option value = "">Senator</option><br />
+                                    </select>
+                            </div>
+                            <div class="clearfix"></div>
+                            <input value="Search" type="button" class="btn search" id="nominate"/>                                                    
+                        </form>
+                    </div>                     
+                    <div class="vote-container">
+                        <h1>Presidential Candidates</h1>
+                        
+                        <div class="card-container">                            
+                            <div class="card">
+                                <div class="profile">
+                                    <div class="img">
+                                        <img src="./img/pat.jpg" alt="">
+                                    </div>
+                                    <p>Nominee Fourteen</p>
+                                    <p>7 Votes</p>
+                                    <h3>Peoples Democratic Party</h3>
+                                    <h4>Running to Be: Vice-President</h4>
+                                    <div>
+                                        <a href="manifesto.html" class="btn-decide manifest">View Manifesto</a>
+                                        <button class="btn-decide vote"> Vote</button>
+                                    </div>   
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="profile">
+                                    <div class="img">
+                                        <img src="./img/vp_ypp.jpg" alt="">
+                                    </div>
+                                    <p>Nominee Fourteen</p>
+                                    <p>7 Votes</p>
+                                    <h3>Peoples Democratic Party</h3>
+                                    <h4>Running to Be: Vice-President</h4>
+                                    <div>
+                                        <a href="manifesto.html" class="btn-decide manifest">View Manifesto</a>
+                                        <button class="btn-decide vote"> Vote</button>
+                                    </div>   
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="profile">
+                                    <div class="img">
+                                        <img src="./img/Atiku-Abubakar.jpg" alt="">
+                                    </div>
+                                    <p>Nominee Fourteen</p>
+                                    <p>7 Votes</p>
+                                    <h3>Peoples Democratic Party</h3>
+                                    <h4>Running to Be: Vice-President</h4>
+                                    <div>
+                                        <a href="manifesto.html" class="btn-decide manifest">View Manifesto</a>
+                                        <button class="btn-decide vote"> Vote</button>
+                                    </div>   
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>               
+                        </div>
+                            
+                    </div>
+                    <div class="party-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>name</th>
+                                    <th>hqAddress</th>
+                                    <th>logo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>PDP</td>
+                                    <td>Ikeja</td>
+                                    <td><img src="./img/logo/Peoples-democratic-party-PDP.jpg" alt="Party Logo"></td>
+                                </tr>
+                                <tr>
+                                    <td>APC</td>
+                                    <td>Lekki</td>
+                                    <td><img src="./img/logo/APC.jpg" alt="Party Logo"></td>
+                                </tr>
+                                <tr>
+                                    <td>LPN</td>
+                                    <td>Badagry</td>
+                                    <td><img src="./img/logo/Legacy-party-LPN.jpg" alt="Party Logo"></td>
+                                </tr>
+                                <tr>
+                                    <td>lP</td>
+                                    <td>oshodi</td>
+                                    <td><img src="./img/logo/Labour-Party-LP.jpg" alt="Party Logo"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                    <div class="review-container">
+                        <table>
+                                <thead>
+                                    <tr>
+                                        <th>Candidate</th>
+                                        <th>Political Office</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Kingsley Moghalu</td>
+                                        <td>President</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Festus Atiru</td>
+                                        <td>Senator</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ifeanyi Ugwuanyi</td>
+                                        <td>Governor</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Frank Ugwu</td>
+                                        <td>Lga Chairman</td>
+                                    </tr>
+                                </tbody>
+                        </table>
+
+                    </div>
+                    <div class="interest-container">
+                        <form method="post" action="search">               
+                            <div class="form-input"> 
+                                    <select name="" type="text" class="form-control" >
+                                    <option value = "">Select Office</option>
+                                    <option value = "">President</option><br />
+                                    <option value = "">Governor</option><br />
+                                    <option value = "">House Of Rep</option><br />
+                                    <option value = "">Senator</option><br />
+                                    </select>
+                            </div>
+                            <div class="form-input"> 
+                                <textarea placeholder="Manifesto" class="textarea-control" required="required"></textarea>
+                            </div>
+                            <div class="clearfix"></div>
+                            <input value="Apply" type="submit" class="btn search" id="nominate"/>                                                    
+                        </form>
+    
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </section>     
+    <footer>
+
+    </footer> 	 
+    <script src="./js/user.js"></script> 
+</body>  
+</html>
