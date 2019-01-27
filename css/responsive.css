@@ -1,0 +1,38 @@
+
+
+/*FOr computer*/
+@media only screen and (max-width: 1200px){
+    
+}
+/*FOr big tablet*/
+@media only screen and (max-width: 1023px){
+    
+}
+/*FOr small tablet*/
+@media only screen and (max-width: 767px){
+    nav  ul li > a{
+        margin-right: 15px;
+    }
+    body{
+        background-image:none;
+    }
+    .sidebar {
+        width: 100px;
+        font-size: 7px;
+
+    }
+    .user-action ul li{
+        display: block;
+        padding: 10px 0;
+    }
+    .user-action ul li a{
+        font-size: 12px;
+        padding-left: 5px;
+    }
+
+}
+
+/*FOr small phones*/
+@media only screen and (max-width: 480px){
+    
+}
