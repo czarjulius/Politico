@@ -140,27 +140,9 @@ nav ul li > a:active{
 
 }
 
-.badge{
-    margin-right: 30px;
-    width: 200px;
-    height: 90px;
-    background-color: #fff;
-    padding: 20px 30px;
-    color: #000;
-    border-radius: 8px;
-    margin-bottom: 30px;
-    float: left;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(204, 99, 99, 0.39), 0 6px 6px rgba(0,0,0,3.23);
-
-}
 .badge h3,p{
-    margin-bottom: 10px;
     color: rgba(16, 63, 31, 0.87);
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    word-spacing: 2px;
+
 }
 footer{
     background-color: rgb(12, 54, 35);
