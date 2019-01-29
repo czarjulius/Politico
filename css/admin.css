@@ -1,13 +1,11 @@
 
 .create-party-cover{
-    display: none;
-    color: rgb(16, 100, 72)
+    color: rgb(16, 100, 72);
+    margin: auto;
 }
 .admin-form{
-    width: 300px;
     height: 100px;
     margin: auto;
-    margin-top: 20px;
     padding: 20px;
     display: table;
     background: rgba(255,255,255,.2);
@@ -19,7 +17,7 @@
 
 .form-control {
     display: block;
-    width: 300px;
+    width: 100%;
     height: 40px;
     padding: 6px 12px;
     font-size: 14px;
@@ -60,36 +58,56 @@
 /*Create Office Type*/
 .create-office-cover{
     display: none;
-    color: rgb(16, 100, 72)
+    color: rgb(16, 100, 72);
+    margin: auto;
 }
 
 .edit-party-cover{
-    width: 500px;
     height: auto;
     margin: auto;
-    margin-top: 20px;
     display: table;
-    background: rgba(255,255,255,.2);
+    background: #fff;
     border-radius: 5px;
     box-shadow: 0 10px 20px rgba(10, 10, 10, 0.39), 0 3px 3px rgba(0,0,0,3.23);
     display: none;
 }
 .edit-party-cover table{
     padding: 20px;
-    margin-left: 40px;
 }
+
 table td{
-    padding: 30px;
-    color: rgb(58, 105, 79);
+    padding: 20px;
+    border-bottom: 1px solid #198b08;
+    color: #0e3f07;
+
+}
+.party-name{
+    color: #040f02;
+    font-size: 15px;
+    font-weight: bold;
+
+}
+table th{
+    padding: 10px;
+    border-bottom: 1px solid #198b08;
+
+}
+
+thead{
+    text-transform: uppercase;
+}
+tbody{
+    text-transform: capitalize;
+    font-size: 14px;
 }
 table td a{
-    padding: 30px;
+    padding: 15px;
     color: rgb(18, 117, 64);
     font-size: 16px;
 }
 table td a:hover,
 table td a:active{
-    font-size: 15px;
+    font-size: 14px;
     color: rgb(25, 53, 38);
 
 }
@@ -101,4 +119,14 @@ thead{
 }
 tbody{
     text-transform: capitalize;
+}
+tr > td > button{
+    width: 90px;
+    height: 30px;
+    font-size: 14px;
+    color: rgb(24, 88, 58);
+    background-color: rgb(117, 150, 133);
+    border-radius: 20px; 
+    font-weight: bold;
+    
 }

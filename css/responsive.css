@@ -29,10 +29,30 @@
         font-size: 12px;
         padding-left: 5px;
     }
+    html{
+        font-size: 12px;
+    }
+    .form-control{
+        width: auto;
+        width: 100%;
+
+    }
+    .select-vote-box > h2{
+        font-size: 25px;
+    }
 
 }
 
 /*FOr small phones*/
 @media only screen and (max-width: 480px){
-    
+    .select-vote-box > h2{
+        font-size: 20px;
+    }
+    .search{
+        height: 20px;
+        padding: 1px 3px;
+        font-size: 10px;
+        width: 60px;
+
+    }
 }
