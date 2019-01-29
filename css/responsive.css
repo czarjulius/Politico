@@ -48,4 +48,11 @@
     .select-vote-box > h2{
         font-size: 20px;
     }
+    .search{
+        height: 20px;
+        padding: 1px 3px;
+        font-size: 10px;
+        width: 60px;
+
+    }
 }
