@@ -37,10 +37,15 @@
         width: 100%;
 
     }
+    .select-vote-box > h2{
+        font-size: 25px;
+    }
 
 }
 
 /*FOr small phones*/
 @media only screen and (max-width: 480px){
-    
+    .select-vote-box > h2{
+        font-size: 20px;
+    }
 }
