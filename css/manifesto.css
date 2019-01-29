@@ -1,9 +1,9 @@
 .container{
     margin: auto;
     width: 800px;
-    height: 100vh;
+    height: auto;
     background-color: rgb(121, 130, 172);
-    margin-top: 70px;
+    margin-top: 73px;
 }
 .manifesto-header{
     text-align: center;
