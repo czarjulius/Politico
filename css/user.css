@@ -192,3 +192,8 @@ tr > td > button{
     border: 1px solid #ccc;
     border-radius: 20px;
 }
+
+.active{
+    background-color: rgb(19, 63, 13);
+  color: #fff;
+}

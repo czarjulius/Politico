@@ -114,9 +114,6 @@ nav ul li > a:hover{
 .user-action ul li:hover{
     background-color: rgba(29, 24, 24, 0.699);
 }
-.user-action ul li:active{
-    background-color: rgba(44, 18, 18, 0.699);
-}
 
 .dashboard-header{
     margin-bottom: 20px;
