@@ -42,5 +42,9 @@ router.delete(
   PartyController.deleteParty,
 );
 
+router.get(
+  '/offices/',
+  OfficeController.getOffices,
+);
 export default router;
 

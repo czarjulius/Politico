@@ -33,7 +33,13 @@ class OfficeController {
     });
   }
 
-  
+  static getOffices(req, res) {
+    res.status(201).json({
+      message: 'All Offices successfully fetched',
+      offices,
+    });
+    res.send(offices);
+  }
 
 }
 
