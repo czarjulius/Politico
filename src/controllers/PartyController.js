@@ -4,7 +4,7 @@ class PartyController {
 
 
   static getParty(req, res) {
-    const party = parties.find(c => c.id === parseInt(req.params.id, 10));
+    const party = parties.find(group => group.id === parseInt(req.params.id, 10));
     if (!party) {
       return res.status(404).json({
         message: 'The party with the given ID not found.',
@@ -38,7 +38,7 @@ class PartyController {
   static patchParty(req, res) {
     const { id } = req.params;
     const { name, hqAddress, logoUrl } = req.body;
-    const party = parties.find(c => c.id === parseInt(id, 10));
+    const party = parties.find(group => group.id === parseInt(id, 10));
     if (!party) return res.status(404).send('The party with the given ID not found.');
     parties[id - 1].name = name,
     parties[id - 1].hqAddress = hqAddress,
@@ -55,7 +55,7 @@ class PartyController {
   }
 
   static deleteParty(req, res) {
-    const party = parties.find(c => c.id === parseInt(req.params.id, 10));
+    const party = parties.find(group => group.id === parseInt(req.params.id, 10));
     if (!party) res.status(404).send('The party with the given ID not found.');
 
     const index = parties.indexOf(party);
@@ -66,3 +66,5 @@ class PartyController {
 }
 
 export default PartyController;
+
+
