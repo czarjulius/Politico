@@ -16,5 +16,10 @@ router.get(
   '/parties/:id',
   PartyController.getParty,
 );
+router.patch(
+  '/parties/:id',
+  PartyValidator.validateFields,
+  PartyController.patchParty,
+);
 
 export default router;
