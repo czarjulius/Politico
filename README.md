@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/czarjulius/Politico.svg?branch=develop)](https://travis-ci.org/czarjulius/Politico)
 [![Coverage Status](https://coveralls.io/repos/github/czarjulius/Politico/badge.svg?branch=develop)](https://coveralls.io/github/czarjulius/Politico?branch=develop)
+<a href="https://codeclimate.com/github/czarjulius/Politico/maintainability"><img src="https://api.codeclimate.com/v1/badges/6e9fba1aa95c4391ff09/maintainability" /></a>
 # Politico
 Politico enables citizens give their mandate to politicians running for different government offices while building trust in the process through transparency.
 
