@@ -51,7 +51,7 @@ class PartyController {
     });
     res.send(parties);
   }
-  /*
+  
   static deleteParty(req, res) {
     const party = parties.find(c => c.id === parseInt(req.params.id, 10));
     if (!party) res.status(404).send('The party with the given ID not found.');
@@ -60,7 +60,7 @@ class PartyController {
     parties.splice(index, 1);
     res.send(party);
   }
-  */
+  
 }
 
 export default PartyController;

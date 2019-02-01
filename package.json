@@ -25,7 +25,7 @@
     "test": "mocha --require @babel/register ./src/tests/**.js --exit",
     "build": "babel src -d dist",
     "start:dev": "nodemon --require @babel/register server.js",
-    "start": "nodegit  --require @babel/register server.js",
+    "start": "node  --require @babel/register server.js",
 
     "serve": "node dist/server.js"
   },
