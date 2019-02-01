@@ -36,11 +36,11 @@ router.get(
   '/parties/',
   PartyController.getParties,
 );
-/*
+
 router.delete(
   '/parties/:id',
   PartyController.deleteParty,
 );
-*/
+
 export default router;
 
