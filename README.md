@@ -15,7 +15,7 @@ npm start
 
 # API
 
-- Heroku - 
+- Heroku - https://julius-politico.herokuapp.com/api/v1
 
  | Method | Description | Endpoints      | Role |
  | ------ | ----------- | -------------- | ---- |
