@@ -1,6 +1,7 @@
 import express from 'express';
 import PartyController from '../controllers/PartyController';
 import PartyValidator from '../middlewares/PartyValidator';
+import OfficeController from '../controllers/OfficeController';
 
 
 const router = express.Router();
@@ -20,6 +21,10 @@ router.patch(
   '/parties/:id',
   PartyValidator.validateFields,
   PartyController.patchParty,
+);
+router.post(
+  '/offices',
+  OfficeController.postoffice,
 );
 
 export default router;
