@@ -1,4 +1,5 @@
 /***********User CONTROLS**********/
+/*
 document.getElementById('castVote').addEventListener('click', function(){
     document.querySelector('.party-container').style.display = 'none';
     document.querySelector('.review-container').style.display = 'none';
@@ -44,3 +45,4 @@ document.getElementById('expressInterest').addEventListener('click', function(){
     document.querySelector('.select-vote-box').style.display = 'none';
     document.querySelector('.interest-container').style.display = 'block';
 });
+*/
