@@ -12,4 +12,9 @@ router.post(
   PartyController.postParty,
 );
 
+router.get(
+  '/parties/:id',
+  PartyController.getParty,
+);
+
 export default router;
