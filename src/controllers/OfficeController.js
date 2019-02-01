@@ -4,7 +4,7 @@ import offices from '../models/offices';
 class OfficeController {
 
     static getOffice(req, res) {
-        const office = offices.find(c => c.id === parseInt(req.params.id, 10));
+        const office = offices.find(position => position.id === parseInt(req.params.id, 10));
         if (!office) {return res.status(404).json({
           message: 'The office with the given ID not found.',
         });}
