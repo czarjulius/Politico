@@ -22,7 +22,7 @@
     "eslint-plugin-import": "^2.15.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha --require @babel/register ./src/tests/**.js --exit",
     "build": "babel src -d dist",
     "start:dev": "nodemon --require @babel/register server.js",
     "serve": "node dist/server.js"
