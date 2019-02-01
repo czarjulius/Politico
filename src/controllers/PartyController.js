@@ -44,7 +44,23 @@ class PartyController {
     res.send(parties[id - 1]);
   }
 
+  static getParties(req, res) {
+    res.status(201).json({
+      message: 'All Parties successfully fetched',
+      parties,
+    });
+    res.send(parties);
+  }
+  /*
+  static deleteParty(req, res) {
+    const party = parties.find(c => c.id === parseInt(req.params.id, 10));
+    if (!party) res.status(404).send('The party with the given ID not found.');
 
+    const index = parties.indexOf(party);
+    parties.splice(index, 1);
+    res.send(party);
+  }
+  */
 }
 
 export default PartyController;
