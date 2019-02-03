@@ -2,6 +2,7 @@ import express from 'express';
 import PartyController from '../controllers/PartyController';
 import PartyValidator from '../middlewares/PartyValidator';
 import OfficeController from '../controllers/OfficeController';
+import AuthController from '../controllers/AuthUserController';
 
 
 const router = express.Router();
@@ -46,5 +47,11 @@ router.get(
   '/offices/',
   OfficeController.getOffices,
 );
+
+router.post(
+  '/register/',
+  AuthController.registerUser,
+);
+
 export default router;
 
