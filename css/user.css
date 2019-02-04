@@ -72,11 +72,11 @@
     box-shadow: 0 10px 30px rgba(204, 99, 99, 0.39), 0 6px 6px rgba(0,0,0,3.23);
 }
 .manifest{
-    background-color:rgb(149, 170, 99);
+    background-color:rgb(68, 85, 18);
 
 }
 .vote{
-    background-color:rgb(102, 10, 25);
+    background-color:rgb(68, 85, 18);
     margin-left: 10px;
 
 }
@@ -132,7 +132,7 @@
     padding: 20px;
 }
 table td{
-    padding: 20px;
+    padding: 10px;
     border-bottom: 1px solid #198b08;
 
 }
@@ -163,6 +163,7 @@ td > img{
     border-radius: 5px;
     display: none;
     background-color: #fff;
+    padding: 10px;
 }
 
 
@@ -179,11 +180,12 @@ tr > td > button{
 .interest-container{
     display: none;
     margin: auto;
+    text-align: center;
 }
 .textarea-control {
     display: block;
-    width: 100%;
-    height: 150px;
+    width: 600px;
+    height: 350px;
     padding: 6px 12px;
     font-size: 14px;
     line-height: 1.42857143;

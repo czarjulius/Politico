@@ -1,14 +1,27 @@
-.container{
+.manifest-container{
     margin: auto;
-    width: 800px;
-    height: auto;
-    background-color: rgb(121, 130, 172);
-    margin-top: 73px;
+    width: 600px;
+    height: 100%;
+    background-color: #fff;
+    margin-top: 70px;
+    display: table;
+    color: rgb(44, 40, 40);
+    box-shadow: 0 10px 30px rgba(204, 99, 99, 0.39), 0 6px 6px rgba(0,0,0,3.23);
+    border-radius: 10px;
 }
 .manifesto-header{
     text-align: center;
+    padding: 30px 20px 0 20px;
 }
 
 .manifesto-body{
     text-align: center;
+    padding: 30px 20px;
+}
+p > a{
+    padding-left: 20px;
+    color: rgb(11, 124, 67);
+}
+ p > a:hover{
+    font-size: 13px;
 }

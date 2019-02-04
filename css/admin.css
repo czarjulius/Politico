@@ -2,17 +2,17 @@
 .create-party-cover{
     color: rgb(16, 100, 72);
     margin: auto;
+
 }
 .admin-form{
-    height: 100px;
-    margin: auto;
-    padding: 20px;
+    height: 500px;
+    padding:30px;
     display: table;
-    background: rgba(255,255,255,.2);
+    background: #fff;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(10, 10, 10, 0.39), 0 3px 3px rgba(0,0,0,3.23);
+    width: 500px;
     text-align: center;
-
 }
 
 .form-control {
@@ -29,10 +29,9 @@
     border-radius: 20px;
 }
 .form-input{
-    padding-top: 20px;
+    padding-top: 30px;
 }
 .btn{
-    display: block;
     height: 40px;
     padding: 6px 12px;
     font-size: 17px;
