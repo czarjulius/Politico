@@ -3,18 +3,20 @@ import offices from '../models/offices';
 
 class OfficeController {
 
-    static getOffice(req, res) {
-        const office = offices.find(position => position.id === parseInt(req.params.id, 10));
-        if (!office) {return res.status(404).json({
-          message: 'The office with the given ID not found.',
-        });}
+  static getOffice(req, res) {
+    const singleOffice = offices.find(office => office.id === parseInt(req.params.id, 10));
+    if (!singleOffice) {return res.status(404).json({
+      message: 'The office with the given ID not found.',
+    });
+    }
     
-        res.status(201).json({
-          message: 'Office successfully fetched',
-          office,
-        });
-      }
+    return res.status(201).json({
+      message: 'Office successfully fetched',
+      singleOffice,
+    });
+  }
     
+
   
   static postoffice(req, res) {
     const { type, name } = req.body;
@@ -38,7 +40,6 @@ class OfficeController {
       message: 'All Offices successfully fetched',
       offices,
     });
-    res.send(offices);
   }
 
 }
