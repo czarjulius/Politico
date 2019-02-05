@@ -65,7 +65,9 @@
                     <div class="vote-container">
                         <h1>Presidential Candidates</h1>
                         
-                        <div class="card-container">                            
+                        <div class="card-container">  
+                                <p><a href="user_dashboard.html"> << Back</a></p>
+                          
                             <div class="card">
                                 <div class="profile">
                                     <div class="img">
@@ -228,14 +230,23 @@
                     <div class="interest-container">
                         <form method="post" action="search">               
                             <div class="form-input"> 
-                                    <select name="" type="text" class="form-control" >
-                                    <option value = "">Select Office</option>
-                                    <option value = "">President</option><br />
-                                    <option value = "">Governor</option><br />
-                                    <option value = "">House Of Rep</option><br />
-                                    <option value = "">Senator</option><br />
-                                    </select>
+                                <select name="" type="text" class="form-control" >
+                                <option value = "">Select Office</option>
+                                <option value = "">President</option><br />
+                                <option value = "">Governor</option><br />
+                                <option value = "">House Of Rep</option><br />
+                                <option value = "">Senator</option><br />
+                                </select>
                             </div>
+                            <div class="form-input"> 
+                                <select name="Office" type="text" class="form-control" id="sub">
+                                <option value = "">Party</option>
+                                <option value = "">PDP</option><br />
+                                <option value = "">APC</option><br />
+                                <option value = "">ANPP</option><br />
+                                <option value = "">ADD</option><br />
+                                </select>
+                            </div> 
                             <div class="form-input"> 
                                 <textarea placeholder="Manifesto" class="textarea-control" required="required"></textarea>
                             </div>

@@ -74,6 +74,19 @@
     padding: 20px;
 }
 
+.edit-office-cover{
+    height: auto;
+    margin: auto;
+    display: table;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(10, 10, 10, 0.39), 0 3px 3px rgba(0,0,0,3.23);
+    display: none;
+}
+.edit-office-cover table{
+    padding: 20px;
+}
+
 table td{
     padding: 20px;
     border-bottom: 1px solid #198b08;
@@ -131,4 +144,12 @@ tr > td > button{
 .active{
     background-color: rgb(19, 63, 13);
   color: #fff;
+}
+.manageEdit-party-cover{
+    margin: auto;
+    display: none;
+}
+.manageEdit-office-cover{
+    margin: auto;
+    display: none;
 }
