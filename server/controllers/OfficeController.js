@@ -1,5 +1,4 @@
 
-import offices from '../models/offices';
 
 class OfficeController {
 

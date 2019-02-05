@@ -1,4 +1,3 @@
-import parties from '../models/parties';
 
 class PartyController {
 
