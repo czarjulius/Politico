@@ -16,19 +16,6 @@ CREATE TABLE IF NOT EXISTS users (
 );
 `;
 
-// const GenerateUserTable2 = `
-// CREATE TABLE IF NOT EXISTS users2 (
-//  userId serial PRIMARY KEY,
-//  email VARCHAR (50) NOT NULL UNIQUE,
-//  firstName VARCHAR (50) NOT NULL,
-//  lastName VARCHAR (50) NOT NULL,
-//  othername VARCHAR (50)  NULL,
-//  phoneNumber VARCHAR (50) NOT NULL,
-//  passportUrl VARCHAR (50) NOT NULL,
-//  isAdmin boolean DEFAULT VALUE false,
-//  regDate date NOT NULL DEFAULT CURRENT_DATE
-// );
-// `;
 const user = [GenerateUserTable];
 user.map(text => pool.query(text)
   .then()
