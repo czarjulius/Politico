@@ -42,5 +42,5 @@ class AuthUsersController {
       });
   }
 }
-export default AuthUsersController;
 
+export default AuthUsersController;

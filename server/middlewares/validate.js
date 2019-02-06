@@ -2,8 +2,8 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const validation = {
-  validateRegistrationEntry(request, response, next) {
+class validation {
+  static validateRegistrationEntry(request, response, next) {
     const required = ['email', 'password', 'firstName', 'lastName', 'phoneNumber', 'confirmPassword'];
     const collection = request.body;
     let isValid = true;
@@ -56,11 +56,12 @@ const validation = {
       success: false,
       errors,
     });
-  },
+  }
 
-  isEmail(email) {
+  static isEmail(email) {
     const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return emailRegex.test(String(email).toLowerCase());
-  },
-};
+  }
+}
+
 export default validation;
