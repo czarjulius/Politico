@@ -2,17 +2,17 @@ import jwt from 'jsonwebtoken';
 import db from '../db/database';
 
 
-const auth = {
-  authenticate(user) {
+class auth {
+  static authenticate(user) {
     return jwt.sign({
       id: user.id,
       email: user.email,
     }, process.env.PRIVATE_KEY, {
       expiresIn: '48h',
     });
-  },
+  }
 
-  verifyToken(token) {
+  static verifyToken(token) {
     let decoded = {};
     try {
       decoded.payload = jwt.verify(token, process.env.PRIVATE_KEY);
@@ -22,9 +22,9 @@ const auth = {
       };
     }
     return decoded;
-  },
+  }
 
-  verifyUserToken(req, res, next) {
+  static verifyUserToken(req, res, next) {
     const token = req.headers['x-access-token'];
     if (!token) {
       return res.status(401).json({ error: 'No token provided.' });
@@ -48,7 +48,7 @@ const auth = {
         next();
       } else { return res.status(404).json({ error: 'User not found' }); }
     });
-  },
-};
+  }
+}
 
 export default auth;

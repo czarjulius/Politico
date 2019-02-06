@@ -23,12 +23,19 @@ class OfficeController {
     const officeId = req.params.id;
     const query = `SELECT * from office where id ='${officeId}'`;
     return db.query(query).then((data) => {
+      if (data.rowCount >= 1) {
       res.status(200).json({
         success: true,
         message: 'Office fetched successfully',
         data: data.rows,
       });
-    }).catch(error => res.status(500).send('Internal server error', error.message));
+    }
+    res.status(404).json({
+      success: false,
+      message: 'Yet to create an Office',
+    });
+    })
+    .catch(error => res.status(500).send('Internal server error', error.message));
   }
 
   static getOffices(req, res) {
@@ -48,6 +55,5 @@ class OfficeController {
     }));
   }
 }
-
 
 export default OfficeController;

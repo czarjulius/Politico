@@ -1,11 +1,12 @@
 import dotenv from 'dotenv';
+import checkEmail from '../helper/helper';
 
 dotenv.config();
 
 const validation = {
-  validateRegistrationEntry(request, response, next) {
+  validateRegistrationEntry(req, res, next) {
     const required = ['email', 'password', 'firstName', 'lastName', 'phoneNumber', 'confirmPassword'];
-    const collection = request.body;
+    const collection = req.body;
     let isValid = true;
     const errors = {};
     for (let i = 0; i < required.length; i += 1) {
@@ -15,7 +16,7 @@ const validation = {
       }
     }
     if (collection.email) {
-      if ((validation.isEmail(collection.email) === false)) {
+      if ((checkEmail.isEmail(collection.email) === false)) {
         isValid = false;
         errors.email = 'please provide a valid email address';
       }
@@ -45,22 +46,18 @@ const validation = {
       isValid = false;
     }
     if (isValid) {
-      request.body.password = collection.password.trim();
-      request.body.firstName = collection.firstName.trim();
-      request.body.lastName = collection.lastName.trim();
-      request.body.email = collection.email.trim();
-      request.body.phoneNumber = collection.phoneNumber.trim();
+      req.body.password = collection.password.trim();
+      req.body.firstName = collection.firstName.trim();
+      req.body.lastName = collection.lastName.trim();
+      req.body.email = collection.email.trim();
+      req.body.phoneNumber = collection.phoneNumber.trim();
       return next();
     }
-    return response.status(400).json({
+    return res.status(400).json({
       success: false,
       errors,
     });
   },
-
-  isEmail(email) {
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return emailRegex.test(String(email).toLowerCase());
-  },
 };
+
 export default validation;
