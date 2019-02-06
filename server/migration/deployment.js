@@ -1,4 +1,3 @@
-import winston from 'winston';
 import pool from '../db/database';
 
 const GenerateUserTable = `

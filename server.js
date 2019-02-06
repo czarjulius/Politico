@@ -5,12 +5,10 @@ const app = express();
 app.use(express.json());
 app.use(router);
 
-app.use('*', (req, res) => {
-  return res.status(404).json({
-    status: 'failed',
-    message: 'route not found',
-  });
-});
+app.use('*', (req, res) => res.status(404).json({
+  status: 'failed',
+  message: 'route not found',
+}));
 
 const port = process.env.PORT || 3000;
 
