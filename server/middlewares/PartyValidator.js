@@ -1,14 +1,7 @@
 class PartyValidator {
-  static checkLength(req, res, next) {
-    return res.status(401).json({
-      message: 'Party doesn\'t exist',
-    });
-    next();
-  }
-
   static validateFields(req, res, next) {
     const errors = [];
-    const { name, logoUrl, hqAddress } = req.body;
+    const { name, logoUrl } = req.body;
     if (name === '' || name === undefined) {
       errors.push({
         param: 'name',

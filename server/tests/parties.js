@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-
+import { describe } from 'mocha';
 import server from '../../server';
 
 const { expect } = chai;
@@ -44,7 +44,7 @@ describe('Parties', () => {
       .get('/api/v1/parties/1')
       .end((req, res) => {
         const { party, status, message } = res.body;
-        expect(res.status).eql(201);
+        expect(res.status).eql(200);
         expect(party.name).eql('PDP');
         expect(party.id).eql(1);
       });
