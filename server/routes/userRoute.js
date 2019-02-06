@@ -9,4 +9,5 @@ router.post(
   userValidator.validateRegistrationEntry,
   AuthController.registerUser,
 );
+
 export default router;

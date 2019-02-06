@@ -1,4 +1,5 @@
 import dotenv from 'dotenv';
+import checkEmail from '../helper/helper';
 
 dotenv.config();
 
@@ -15,7 +16,7 @@ const validation = {
       }
     }
     if (collection.email) {
-      if ((validation.isEmail(collection.email) === false)) {
+      if ((checkEmail.isEmail(collection.email) === false)) {
         isValid = false;
         errors.email = 'please provide a valid email address';
       }
@@ -56,11 +57,6 @@ const validation = {
       success: false,
       errors,
     });
-  },
-
-  isEmail(email) {
-    const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return emailRegex.test(String(email).toLowerCase());
   },
 };
 export default validation;
