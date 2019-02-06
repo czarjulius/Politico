@@ -15,8 +15,29 @@ CREATE TABLE IF NOT EXISTS users (
  regDate date NOT NULL DEFAULT CURRENT_DATE
 );
 `;
+const GeneratePartyTable = `
+CREATE TABLE IF NOT EXISTS party (
+ id serial PRIMARY KEY,
+ name VARCHAR (255) NOT NULL UNIQUE,
+ hqAddress VARCHAR (255) NOT NULL,
+ logoUrl VARCHAR (255) NOT NULL,
+ createdAt date NOT NULL DEFAULT CURRENT_DATE,
+ updateedAt date NOT NULL DEFAULT CURRENT_DATE
+ 
+);
+`;
+const GenerateOfficeTable = `
+CREATE TABLE IF NOT EXISTS office (
+ id serial PRIMARY KEY,
+ type VARCHAR (255) NOT NULL UNIQUE,
+ name VARCHAR (255) NOT NULL,
+ createdAt date NOT NULL DEFAULT CURRENT_DATE,
+ updateedAt date NOT NULL DEFAULT CURRENT_DATE
+ 
+);
+`;
 
-const user = [GenerateUserTable];
+const user = [GenerateUserTable, GeneratePartyTable, GenerateOfficeTable];
 user.map(text => pool.query(text)
   .then()
-  .catch(error => winston(error.message)));
+  .catch(error => console.log(error.message)));

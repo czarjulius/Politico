@@ -8,7 +8,7 @@ dotenv.config();
 class AuthUsersController {
   static registerUser(req, res) {
     const {
-      firstName, lastName, otherName, phoneNumber, passportUrl, isAdmin, email, password,
+      firstName, lastName, otherName, phoneNumber, passportUrl, email, password,
     } = req.body;
     const queryEmail = {
       text: 'SELECT * FROM users WHERE email = $1 LIMIT 1',
@@ -24,8 +24,8 @@ class AuthUsersController {
         }
         const hashedPassword = bcrypt.hashSync(password, 10);
         const query = {
-          text: 'INSERT INTO users(email, firstName, lastName, otherName, phoneNumber, passportUrl, isAdmin, password) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING userid, email, firstName, lastName,othername,phoneNumber,passportUrl ',
-          values: [email, firstName, lastName, otherName, phoneNumber, passportUrl, isAdmin, hashedPassword],
+          text: 'INSERT INTO users(email, firstName, lastName, otherName, phoneNumber, passportUrl, password) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING userid, email, firstName, lastName,othername,phoneNumber,passportUrl ',
+          values: [email, firstName, lastName, otherName, phoneNumber, passportUrl, hashedPassword],
         };
         Pool.query(query)
           .then((data) => {
@@ -43,4 +43,3 @@ class AuthUsersController {
   }
 }
 export default AuthUsersController;
-

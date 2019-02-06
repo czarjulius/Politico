@@ -1,9 +1,9 @@
 import express from 'express';
-import router from './server/routes';
+import router from './server/routes/index';
 
 const app = express();
 app.use(express.json());
-app.use('/api/v1/', router);
+app.use(router);
 
 app.use('*', (req, res) => {
   return res.status(404).json({
