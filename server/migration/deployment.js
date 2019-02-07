@@ -35,8 +35,21 @@ CREATE TABLE IF NOT EXISTS office (
  
 );
 `;
+const GenerateInterestTable = `
+CREATE TABLE IF NOT EXISTS interest (
+ id serial PRIMARY KEY,
+ userId INTEGER REFERENCES users (userId) ON DELETE CASCADE,
+ officeId INTEGER REFERENCES office (id) ON DELETE CASCADE,
+ partyId INTEGER REFERENCES party (id) ON DELETE CASCADE,
+ manifesto TEXT,
+ isApproved boolean DEFAULT false,
+ createdAt date NOT NULL DEFAULT CURRENT_DATE,
+ updateedAt date DEFAULT CURRENT_DATE
+ 
+);
+`;
 
-const user = [GenerateUserTable, GeneratePartyTable, GenerateOfficeTable];
+const user = [GenerateUserTable, GeneratePartyTable, GenerateOfficeTable, GenerateInterestTable];
 user.map(text => pool.query(text)
   .then()
   .catch(error => console.log(error.message)));

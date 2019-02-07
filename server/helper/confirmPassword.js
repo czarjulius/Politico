@@ -1,12 +1,11 @@
 import bcrypt from 'bcryptjs';
 
-class PasswordController {
-  hashpassword(password) {
-      return bcrypt.hashSync(password, 10);
-    }
+export default class PasswordController {
+  static hashpassword(password) {
+    return bcrypt.hashSync(password, 10);
+  }
 
-    isValidPassword(userpass, password) {
-      return bcrypt.compareSync(password, userpass);
-    }
+  static isValidPassword(userpass, password) {
+    return bcrypt.compareSync(password, userpass);
+  }
 }
-export default new PasswordController();

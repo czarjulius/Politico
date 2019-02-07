@@ -1,5 +1,4 @@
 import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import db from '../db/database';
 import auth from '../middlewares/jwtAuth';
@@ -46,27 +45,36 @@ class AuthUsersController {
 
   static userLogin(req, res) {
     const { email, password } = req.body;
-    db.query({ text: 'SELECT * FROM users where email = $1', values: [email] }).then((data) => {
-      if (data.rowCount === 1) {
-        const checker = confirmPassword.isValidPassword(data.rows[0].password, password);
-        if (checker) {
-          delete data.rows[0].password;
-          jwt.sign({ data: data.rows[0].userid }, 'secretKey', (err, token) => res.json({
-            success: true,
-            message: 'user successfully login',
-            firstName: data.rows[0].firstname,
-            user: data.rows,
-            token,
-          }))
-            .catch(error => res.status(500).json({ message: error.message }));
+    const query = {
+      text: 'SELECT * FROM users where email = $1',
+      values: [email],
+    };
+    db.query(query)
+      .then((data) => {
+        if (data.rows.length > 0) {
+          const checker = confirmPassword.isValidPassword(data.rows[0].password, password);
+          if (checker) {
+            delete data.rows[0].password;
+            const token = auth.authenticate(data.rows[0]);
+            res.status(200).json({
+              success: true,
+              message: 'login successful',
+              data: data.rows[0],
+              token,
+            });
+          } else {
+            res.status(404).json({
+              success: false,
+              message: 'incorrect email or password',
+            });
+          }
         }
-      }
-      res.status(400).json({
+      }).catch(error => res.status(500).json({
         success: false,
-        message: 'Your email or password is incorrect',
-      });
-      return null;
-    });
+        message: 'internal server error',
+        error: error.message,
+      }));
   }
 }
+
 export default AuthUsersController;
