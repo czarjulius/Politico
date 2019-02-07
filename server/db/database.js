@@ -1,6 +1,7 @@
-const pg = require('pg');
+import { Pool } from 'pg';
+import dotenv from 'dotenv';
 
-require('dotenv').config();
+dotenv.config();
 
 const DATABASE_URL = {
   user: process.env.DB_USERNAME,
@@ -12,6 +13,6 @@ const DATABASE_URL = {
   idleTimeoutMillis: 30000,
 };
 
-const pool = new pg.Pool(DATABASE_URL);
+const db = new Pool(DATABASE_URL);
 
-module.exports = pool;
+export default db;

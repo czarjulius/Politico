@@ -1,69 +1,100 @@
-import parties from '../models/parties';
+import db from '../db/database';
+
 
 class PartyController {
-
-
   static getParty(req, res) {
-    const singleParty = parties.find(party => party.id === parseInt(req.params.id, 10));
-    if (!singleParty) {
+    const partyId = req.params.id;
+    const query = `SELECT * from party where id ='${partyId}'`;
+    db.query(query).then((data) => {
+      if (data.rowCount >= 1) {
+        return res.status(200).json({
+          success: true,
+          message: 'Party fetched successfully',
+          data: data.rows,
+        });
+      }
       return res.status(404).json({
-        message: 'The party with the given ID not found.',
+        success: false,
+        message: 'Yet to create a party',
       });
-    }
-
-    res.status(201).json({
-      message: 'Party successfully fetched',
-      singleParty,
-    });
+    })
+      .catch(error => res.status(500).send('Internal server error', error.message));
   }
 
   static postParty(req, res) {
     const { name, hqAddress, logoUrl } = req.body;
-
-    const party = {
-      id: parties.length + 1,
-      name,
-      hqAddress,
-      logoUrl,
+    const query = {
+      text: 'INSERT into party (name, hqAddress, logoUrl) VALUES ($1, $2, $3) returning *',
+      values: [name, hqAddress, logoUrl],
     };
-
-    parties.push(party);
-    res.status(201).json({
-      status: 'success',
-      message: 'Party created successfully',
-      party,
-    });
+    db.query(query).then((data) => {
+      return res.status(201).json({
+        success: true,
+        message: 'Party created successfully',
+        data: data.rows,
+      });
+    }).catch(error => res.status(500).json({
+      message: 'internal server error',
+      error: error.message,
+    }));
   }
 
   static patchParty(req, res) {
     const { id } = req.params;
     const { name, hqAddress, logoUrl } = req.body;
-    const singleParty = parties.find(party => party.id === parseInt(id, 10));
-    if (!singleParty) return res.status(404).send('The party with the given ID not found.');
-    parties[id - 1].name = name,
-    parties[id - 1].hqAddress = hqAddress,
-    parties[id - 1].logoUrl = logoUrl;
-    res.send(parties[id - 1]);
+
+    const query = {
+      text: 'UPDATE party set name = $1, hqAddress = $2, logoUrl = $3 WHERE id = $4 returning *',
+      values: [name, hqAddress, logoUrl, id],
+    };
+
+    db.query(query).then((data) => {
+      return res.status(200).json({
+        success: true,
+        message: 'party updated successfully',
+        data: data.rows,
+      });
+    }).catch(error => res.status(500).json({
+      success: false,
+      message: 'internal server error',
+      error: error.message,
+    }));
   }
 
   static getParties(req, res) {
-    res.status(201).json({
-      message: 'All Parties successfully fetched',
-      parties,
-    });
+    const query = {
+      text: 'SELECT * FROM party',
+    };
+    db.query(query).then((data) => {
+      return res.status(200).json({
+        success: true,
+        message: 'parties retrieved successfully',
+        data: data.rows,
+      });
+    }).catch(error => res.status(500).json({
+      success: false,
+      message: 'internal server error',
+      data: error.message,
+    }));
   }
 
   static deleteParty(req, res) {
-    const singleParty = parties.find(party => party.id === parseInt(req.params.id, 10));
-    if (!singleParty) res.status(404).send('The party with the given ID not found.');
-
-    const index = parties.indexOf(singleParty);
-    parties.splice(index, 1);
-    res.send(singleParty);
+    const { id } = req.params;
+    const query = {
+      text: 'DELETE FROM party WHERE id = $1',
+      values: [id],
+    };
+    db.query(query).then(() => {
+      return res.status(203).json({
+        success: true,
+        message: 'party deleted successfully',
+      });
+    }).catch(error => res.status(500).json({
+      success: false,
+      message: 'internal server error',
+      error: error.message,
+    }));
   }
-
 }
 
 export default PartyController;
-
-

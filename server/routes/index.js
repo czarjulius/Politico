@@ -1,57 +1,20 @@
 import express from 'express';
-import PartyController from '../controllers/PartyController';
-import PartyValidator from '../middlewares/PartyValidator';
-import OfficeController from '../controllers/OfficeController';
-import AuthController from '../controllers/AuthUserController';
+import officeRoute from './officeRoute';
+import partyRoute from './partyRoute';
+import userRoute from './userRoute';
+import interestRoute from './interestRoute';
+import voteRoute from './voteRoute';
+import resultRoute from './resultRoute';
 
 
 const router = express.Router();
 
+router.use('/api/v1', officeRoute);
+router.use('/api/v1', partyRoute);
+router.use('/api/v1', userRoute);
+router.use('/api/v1', interestRoute);
+router.use('/api/v1', voteRoute);
+router.use('/api/v1', resultRoute);
 
-router.post(
-  '/parties',
-  PartyValidator.validateFields,
-  PartyController.postParty,
-);
-
-router.get(
-  '/parties/:id',
-  PartyController.getParty,
-);
-router.patch(
-  '/parties/:id',
-  PartyValidator.validateFields,
-  PartyController.patchParty,
-);
-router.post(
-  '/offices',
-  OfficeController.postoffice,
-);
-
-router.get(
-  '/offices/:id',
-  OfficeController.getOffice,
-);
-
-router.get(
-  '/parties/',
-  PartyController.getParties,
-);
-
-router.delete(
-  '/parties/:id',
-  PartyController.deleteParty,
-);
-
-router.get(
-  '/offices/',
-  OfficeController.getOffices,
-);
-
-router.post(
-  '/register/',
-  AuthController.registerUser,
-);
 
 export default router;
-
