@@ -38,7 +38,7 @@ const validation = {
       isValid = false;
     }
     if (collection.confirmPassword && !collection.confirmPassword.replace(/\s/g, '').length) {
-      errors.confirmPassword = 'Please enter a valid phonenumber';
+      errors.confirmPassword = 'Please enter a valid Password';
       isValid = false;
     }
     if (collection.password.toString().trim() !== collection.confirmPassword.toString().trim()) {
