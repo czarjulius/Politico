@@ -2,6 +2,13 @@ class OfficeValidator {
   static validateFields(req, res, next) {
     const errors = [];
     const { type, name } = req.body;
+    const { isAdmin } = req.decoded;
+    if (!isAdmin) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'Only an Admin can perform this action',
+      });
+    }
     if (type === '' || type === undefined) {
       errors.push({
         param: 'type',
