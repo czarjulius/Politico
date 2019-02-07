@@ -61,14 +61,3 @@ export default class InterestController {
   }
 }
 
-/*
-`
-- decode token from route
-- check if token is same as params
-- if same get details from user table
-  - check if user already exists on the interest table
-      - if no register
-    else throw error
-  else throw error
-`
-*/

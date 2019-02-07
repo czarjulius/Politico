@@ -33,7 +33,6 @@ class auth {
     if (decoded.error) {
       return res.status(500).json({ error: 'Failed to authenticate token.' });
     }
-    // console.log(decoded.payload);
     const query = {
       text: 'select * from users where userid = $1 LIMIT 1',
       values: [decoded.payload.id],

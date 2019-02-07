@@ -31,7 +31,7 @@ class AuthUsersController {
         db.query(query)
           .then((data) => {
             const userToken = auth.authenticate(data.rows[0]);
-            res.status(201).json({
+            return res.status(201).json({
               success: true,
               message: 'user registration was successful',
               firstName: data.rows[0].firstname,
@@ -56,19 +56,18 @@ class AuthUsersController {
           if (checker) {
             delete data.rows[0].password;
             const token = auth.authenticate(data.rows[0]);
-            res.status(200).json({
+            return res.status(200).json({
               success: true,
               message: 'login successful',
               data: data.rows[0],
               token,
             });
-          } else {
-            res.status(404).json({
-              success: false,
-              message: 'incorrect email or password',
-            });
           }
         }
+        return res.status(404).json({
+          success: false,
+          message: 'incorrect email or password',
+        });
       }).catch(error => res.status(500).json({
         success: false,
         message: 'internal server error',

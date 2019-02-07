@@ -14,4 +14,5 @@ router.post(
   '/auth/login',
   AuthController.userLogin,
 );
+
 export default router;

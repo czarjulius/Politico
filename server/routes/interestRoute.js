@@ -1,6 +1,6 @@
 
 import express from 'express';
-import auth from '../middlewares/jwtAuth'
+import auth from '../middlewares/jwtAuth';
 import InterestController from '../controllers/InterestController';
 import CandidateController from '../controllers/candidateController';
 

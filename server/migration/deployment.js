@@ -49,7 +49,18 @@ CREATE TABLE IF NOT EXISTS interest (
 );
 `;
 
-const user = [GenerateUserTable, GeneratePartyTable, GenerateOfficeTable, GenerateInterestTable];
+const GenerateVoteTable = `
+CREATE TABLE IF NOT EXISTS vote (
+ id serial PRIMARY KEY,
+ userId INTEGER REFERENCES users (userId) ON DELETE CASCADE,
+ officeId INTEGER REFERENCES office (id) ON DELETE CASCADE,
+ candidateId INTEGER REFERENCES interest (id) ON DELETE CASCADE,
+ vote INTEGER,
+ createdAt date NOT NULL DEFAULT CURRENT_DATE
+);
+`;
+
+const user = [GenerateUserTable, GeneratePartyTable, GenerateOfficeTable, GenerateInterestTable, GenerateVoteTable];
 user.map(text => pool.query(text)
   .then()
   .catch(error => console.log(error.message)));
