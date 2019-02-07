@@ -6,7 +6,7 @@ class auth {
   static authenticate(user) {
     return jwt.sign({
       id: user.userid,
-      email: user.email,
+      isAdmin: user.isadmin,
     }, process.env.PRIVATE_KEY, {
       expiresIn: '48h',
     });
@@ -25,7 +25,10 @@ class auth {
   }
 
   static verifyUserToken(req, res, next) {
-    const token = req.headers['x-access-token'];
+    if (!req.headers.authorization) {
+      return res.status(401).json({ error: 'No token provided kindly login.' });
+    }
+    const token = req.headers.authorization.split(' ')[1];
     if (!token) {
       return res.status(401).json({ error: 'No token provided.' });
     }

@@ -2,6 +2,14 @@ class PartyValidator {
   static validateFields(req, res, next) {
     const errors = [];
     const { name, logoUrl } = req.body;
+    const { isAdmin } = req.decoded;
+    if (!isAdmin) {
+      return res.status(400).json({
+        status: 'failed',
+        message: 'Only an Admin can perform this action',
+      });
+    }
+  
     if (name === '' || name === undefined) {
       errors.push({
         param: 'name',

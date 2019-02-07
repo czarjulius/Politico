@@ -13,6 +13,7 @@ router.post(
 
 router.patch(
   '/office/:userId/register',
+  auth.verifyUserToken,
   CandidateController.patchInterest,
 );
 
