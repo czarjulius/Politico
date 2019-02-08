@@ -9,7 +9,7 @@ dotenv.config();
 class AuthUsersController {
   static registerUser(req, res) {
     const {
-      firstName, lastName, otherName, phoneNumber, passportUrl, email, password,
+      firstName, lastName, otherName, phoneNumber, passportUrl, email, password,isAdmin
     } = req.body;
     const queryEmail = {
       text: 'SELECT * FROM users WHERE email = $1 LIMIT 1',
@@ -26,7 +26,7 @@ class AuthUsersController {
         const hashedPassword = bcrypt.hashSync(password, 10);
         const query = {
           text: 'INSERT INTO users(email, firstName, lastName, otherName, phoneNumber, passportUrl, password, isAdmin) VALUES($1, $2, $3, $4, $5, $6, $7, $8) RETURNING userid, email, firstName, lastName,othername,phoneNumber,passportUrl,isAdmin',
-          values: [email, firstName, lastName, otherName, phoneNumber, passportUrl, hashedPassword, false],
+          values: [email, firstName, lastName, otherName, phoneNumber, passportUrl, hashedPassword, isAdmin],
         };
         db.query(query)
           .then((data) => {
