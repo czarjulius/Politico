@@ -60,7 +60,11 @@ CREATE TABLE IF NOT EXISTS vote (
 );
 `;
 
-const user = [GenerateUserTable, GeneratePartyTable, GenerateOfficeTable, GenerateInterestTable, GenerateVoteTable];
+const user = [GenerateUserTable,
+  GeneratePartyTable,
+  GenerateOfficeTable,
+  GenerateInterestTable,
+  GenerateVoteTable];
 user.map(text => pool.query(text)
   .then()
   .catch(error => console.log(error.message)));
