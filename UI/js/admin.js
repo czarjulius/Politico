@@ -1,4 +1,4 @@
-/***********ADMIN CONTROLS**********/
+/** *********ADMIN CONTROLS********* */
 /*
 document.getElementById('createParty').addEventListener('click', function(){
     document.querySelector('.create-office-cover').style.display = 'none';

@@ -13,7 +13,7 @@ class VoteCotroller {
         .then((data) => {
           if (data.rows.length > 0) {
             return res.status(401).json({
-              success: false,
+              status: 401,
               message: 'This user has already voted for this office',
             });
           }
@@ -23,7 +23,7 @@ class VoteCotroller {
           };
           db.query(query).then((data0) => {
             res.status(201).json({
-              success: true,
+              status: 201,
               message: 'vote casted successfully',
               data: data0.rows,
             });
@@ -32,7 +32,7 @@ class VoteCotroller {
             error: error.message,
           }));
         }).catch(error => res.status(500).json({
-          success: false,
+          status: 500,
           message: 'internal server error',
           error: error.message,
         }));

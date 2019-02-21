@@ -1,4 +1,4 @@
-/***********User CONTROLS**********/
+/** *********User CONTROLS********* */
 /*
 document.getElementById('castVote').addEventListener('click', function(){
     document.querySelector('.party-container').style.display = 'none';

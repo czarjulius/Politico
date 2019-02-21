@@ -9,7 +9,7 @@ class OfficeController {
     };
     db.query(query).then((data) => {
       res.status(201).json({
-        success: true,
+        status: 201,
         message: 'Office created successfully',
         data: data.rows,
       });
@@ -25,13 +25,13 @@ class OfficeController {
     return db.query(query).then((data) => {
       if (data.rowCount >= 1) {
         res.status(200).json({
-          success: true,
+          status: 200,
           message: 'Office fetched successfully',
           data: data.rows,
         });
       }
       res.status(404).json({
-        success: false,
+        status: 404,
         message: 'Yet to create an Office',
       });
     })
@@ -44,12 +44,12 @@ class OfficeController {
     };
     db.query(query).then((data) => {
       res.status(200).json({
-        success: true,
+        status: 200,
         message: 'offices retrieved successfully',
         data: data.rows,
       });
     }).catch(error => res.status(500).json({
-      success: false,
+      status: 500,
       message: 'internal server error',
       data: error.message,
     }));

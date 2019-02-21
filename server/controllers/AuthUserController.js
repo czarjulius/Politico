@@ -9,7 +9,7 @@ dotenv.config();
 class AuthUsersController {
   static registerUser(req, res) {
     const {
-      firstName, lastName, otherName, phoneNumber, passportUrl, email, password,isAdmin
+      firstName, lastName, otherName, phoneNumber, passportUrl, email, password, isAdmin
     } = req.body;
     const queryEmail = {
       text: 'SELECT * FROM users WHERE email = $1 LIMIT 1',
@@ -19,7 +19,7 @@ class AuthUsersController {
       .then((result) => {
         if (result.rows.length > 0) {
           return res.status(409).json({
-            success: false,
+            status: 409,
             message: 'email already exists',
           });
         }
@@ -32,7 +32,7 @@ class AuthUsersController {
           .then((data) => {
             const userToken = auth.authenticate(data.rows[0]);
             return res.status(201).json({
-              success: true,
+              status: 201,
               message: 'user registration was successful',
               firstName: data.rows[0].firstname,
               data: data.rows[0],
@@ -57,7 +57,7 @@ class AuthUsersController {
             delete data.rows[0].password;
             const token = auth.authenticate(data.rows[0]);
             return res.status(200).json({
-              success: true,
+              status: 200,
               message: 'login successful',
               data: data.rows[0],
               token,
@@ -69,7 +69,7 @@ class AuthUsersController {
           message: 'incorrect email or password',
         });
       }).catch(error => res.status(500).json({
-        success: false,
+        status: 500,
         message: 'internal server error',
         error: error.message,
       }));

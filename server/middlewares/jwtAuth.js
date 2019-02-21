@@ -11,7 +11,7 @@ class auth {
       expiresIn: '48h',
     });
   }
-
+  
   static verifyToken(token) {
     let decoded = {};
     try {

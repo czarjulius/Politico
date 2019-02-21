@@ -8,14 +8,14 @@ class PartyController {
     db.query(query).then((data) => {
       if (data.rowCount >= 1) {
         return res.status(200).json({
-          success: true,
+          status: 200,
           message: 'Party fetched successfully',
           data: data.rows,
         });
       }
       return res.status(404).json({
-        success: false,
-        message: 'Yet to create a party',
+        status: 404,
+        message: `Yet to create a party with ID ${partyId}`,
       });
     })
       .catch(error => res.status(500).send('Internal server error', error.message));
@@ -29,7 +29,7 @@ class PartyController {
     };
     db.query(query).then((data) => {
       return res.status(201).json({
-        success: true,
+        status: 201,
         message: 'Party created successfully',
         data: data.rows,
       });
@@ -50,7 +50,7 @@ class PartyController {
 
     db.query(query).then((data) => {
       return res.status(200).json({
-        success: true,
+        status: 200,
         message: 'party updated successfully',
         data: data.rows,
       });
@@ -67,7 +67,7 @@ class PartyController {
     };
     db.query(query).then((data) => {
       return res.status(200).json({
-        success: true,
+        status: 200,
         message: 'parties retrieved successfully',
         data: data.rows,
       });
@@ -86,11 +86,11 @@ class PartyController {
     };
     db.query(query).then(() => {
       return res.status(203).json({
-        success: true,
+        status: 203,
         message: 'party deleted successfully',
       });
     }).catch(error => res.status(500).json({
-      success: false,
+      status: 500,
       message: 'internal server error',
       error: error.message,
     }));

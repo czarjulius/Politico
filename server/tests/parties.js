@@ -34,11 +34,13 @@ describe('Parties', () => {
         logoUrl: 'wwww.logo.png',
         hqAddress: 'lagos, Nigeria',
       })
-      .end((req, res) => {
-        const { status, errors } = res.body;
-        expect(res.status).eql(422);
-        expect(errors[0].message).eql('name is required');
-      });
+        .end((err, res) => {
+          expect(res.body).to.have.property('status');
+          expect(res.body.status).to.equal(422);
+          expect(res.body).to.have.property('data');
+          expect(res.body.data).to.have.property('token');
+          expect(res.body.data).to.have.property('error');
+          done();
   });
 
   it('should fetch a specific political party', () => {

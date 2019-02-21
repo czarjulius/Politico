@@ -13,7 +13,7 @@ export default class InterestController {
         .then((data) => {
           if (data.rows.length > 0) {
             return res.status(401).json({
-              success: false,
+              status: 401,
               message: 'user already declared interest',
             });
           }
@@ -24,7 +24,7 @@ export default class InterestController {
           };
           db.query(query).then((data0) => {
             res.status(201).json({
-              success: true,
+              status: 201,
               message: 'Interest declared successfully',
               data: data0.rows,
             });
@@ -33,7 +33,7 @@ export default class InterestController {
             error: error.message,
           }));
         }).catch(error => res.status(500).json({
-          success: false,
+          status: 500,
           message: 'internal server error',
           error: error.message,
         }));
@@ -49,12 +49,12 @@ export default class InterestController {
     };
     db.query(query).then((data) => {
       res.status(200).json({
-        success: true,
+        status: 200,
         message: 'Interest Aprroved successfully',
         data: data.rows,
       });
     }).catch(error => res.status(500).json({
-      success: false,
+      status: 500,
       message: 'internal server error',
       error: error.message,
     }));

@@ -8,7 +8,6 @@ const router = express.Router();
 
 router.post(
   '/offices',
-  OfficeValidator.validateFields,
   auth.verifyUserToken,
   OfficeController.postOffice,
 );

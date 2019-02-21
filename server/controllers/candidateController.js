@@ -10,12 +10,12 @@ class confirmCandidate {
     };
     db.query(query).then((data) => {
       res.status(200).json({
-        success: true,
+        status: 200,
         message: 'Candidate approved successfully',
         data: data.rows[0],
       });
     }).catch(error => res.status(500).json({
-      success: false,
+      status: 500,
       message: 'internal server error',
       error: error.message,
     }));
